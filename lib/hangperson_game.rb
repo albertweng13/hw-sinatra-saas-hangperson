@@ -24,21 +24,19 @@ class HangpersonGame
       raise ArgumentError
     end
     
-    change = false
     ltr.downcase!
-    
     if self.word.include? ltr
       if not self.guesses.include? ltr
         self.guesses += ltr
-        change = true
+        return true
       end
     else
       if not self.wrong_guesses.include? ltr
         self.wrong_guesses += ltr
-        change = true
+        return true
       end
     end
-    return change
+    return false
   end
   
   def word_with_guesses
